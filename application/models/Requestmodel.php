@@ -14,7 +14,10 @@ class Requestmodel extends CI_Model
 
     public function getAll()
     {
-        return $this->db->get('requests')->result();
+			$this->db->order_by("timestamp", "asc");
+			$mydate = date('Y-m-d'); 
+			//$this->db->where("DATEDIFF('$mydate', timestamp) <", 1);
+      return $this->db->get('requests')->result();
     }
 
 }
