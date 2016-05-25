@@ -19,15 +19,11 @@
 
 <?= form_close(); ?>
 
-
-
-
 <div id="dz-root"></div>
 <script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
 <script>
-    DZ.init({
-        appId  : 'YOUR_APP_ID',
-        channelUrl : 'http://YOUR_DOMAIN/channel.html'
+    DZ.api('/search/track/bad', function(response){
+        console.log("Name of user id 5", response.title);
     });
 </script>
 
