@@ -12,12 +12,19 @@
 <?= validation_errors(); ?>
 
 <?= form_open('request'); ?>
+<?= form_hidden('track_id', '', array('id'=>'pok')); ?>
 
-<?= form_input('data');?>
+<?= form_input('data', '', array('id'=> 'searchDeeze'));?>
 
-<?= form_submit('send', 'Send'); ?>
+<?= form_submit('send', 'Send', array('id'=>'send', 'disabled'=>'disabled')); ?>
 
 <?= form_close(); ?>
+
+<div class="autoload">
+    <ul>
+
+    </ul>
+</div>
 
 <div id="dz-root"></div>
 <script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
@@ -31,6 +38,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/assets/js/app.js"></script>
 
 </body>
 </html>

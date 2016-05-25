@@ -9,7 +9,8 @@ class Request extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('Requestmodel');
 
-        $this->form_validation->set_rules('data','Song','required');
+        $this->form_validation->set_rules('data','Track','required');
+        $this->form_validation->set_rules('track_id','Track ID','required');
         if ($this->form_validation->run() === FALSE){
             $this->load->view('request');
         }else{
