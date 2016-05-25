@@ -8,11 +8,10 @@ class Login extends CI_Controller {
 
         $this->load->model('LoginModel');
 
+        $data['title'] = 'Login';
+        $data['user'] = $this->LoginModel->do_login();
 
-
-
-        $data['user'] =             $this->LoginModel->do_login();
-        $this->load->view('login',data);
+        $this->load->view('login',$data);
 
 
     }
