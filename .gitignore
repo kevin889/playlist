@@ -26,7 +26,6 @@
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
-
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
@@ -59,3 +58,4 @@ fabric.properties
 
 # *.iml
 # modules.xml
+/application/config/
