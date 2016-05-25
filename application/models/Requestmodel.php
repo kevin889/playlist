@@ -10,8 +10,11 @@ class Requestmodel extends CI_Model
         );
 
         $this->db->insert('requests', $data);
+    }
 
-        echo $data['data'];
+    public function getAll()
+    {
+        return $this->db->get('requests')->result();
     }
 
 }

@@ -26,17 +26,6 @@
     </ul>
 </div>
 
-<div id="dz-root"></div>
-<script src="http://cdn-files.deezer.com/js/min/dz.js"></script>
-<script>
-    DZ.api('/search/track/bad', function(response){
-        console.log("Name of user id 5", response.title);
-    });
-</script>
-
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="/assets/js/app.js"></script>
 

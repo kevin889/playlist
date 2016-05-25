@@ -16,13 +16,13 @@ class Request extends CI_Controller {
         $this->form_validation->set_rules('data','Track','required');
         $this->form_validation->set_rules('track_id','Track ID','required');
 
-        
+
 
         if ($this->form_validation->run() === FALSE){
-            $this->load->view('request');
+            $this->load->view('request/index');
         }else{
             $this->Requestmodel->do_request();
-            echo "goeie";
+            redirect('/request/success', 'refresh');
         }
 
 
@@ -31,7 +31,10 @@ class Request extends CI_Controller {
     public function create()
     {
         $this->load->library('form_validation');
+    }
 
-
+    public function success()
+    {
+        $this->load->view('request/success');
     }
 }

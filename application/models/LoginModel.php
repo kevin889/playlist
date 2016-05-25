@@ -10,10 +10,6 @@ class LoginModel extends CI_Model
     public function do_login()
     {
 
-//        if (isset($_SESSION['accessToken'])) {
-//            return redirect('/', 'refresh');
-//        }
-
         if (!isset($code)) {
             $_SESSION['state'] = md5(uniqid(rand(), true)); //CSRF protection
 
@@ -27,29 +23,6 @@ class LoginModel extends CI_Model
 
         }
 
-        if ($_REQUEST['state'] == $_SESSION['state']) {
-            $token_url = "https://connect.deezer.com/oauth/access_token.php?app_id="
-                . $this->app_id . "&secret="
-                . $this->app_secret . "&code=" . $code;
-
-            $response = file_get_contents($token_url);
-            $params = null;
-            parse_str($response, $params);
-            $api_url = "https://api.deezer.com/user/me?access_token="
-                . $params['access_token'];
-
-            $user = json_decode(file_get_contents($api_url), true);
-            $userData = array(
-                'accessToken' => $params['access_token']
-            );
-
-            $_SESSION['token'] = $params['access_token'];
-
-            echo("Hello " . $user->name);
-            die();
-        } else {
-            echo("The state does not match. You may be a victim of CSRF.");
-        }
     }
 
     public function save_login()

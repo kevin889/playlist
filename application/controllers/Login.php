@@ -19,7 +19,7 @@ class Login extends CI_Controller {
         $this->load->model('LoginModel');
         $this->LoginModel->save_login();
         
-        var_dump($this->LoginModel->get_user());
+        redirect('/','refresh');
     }
 
 }
