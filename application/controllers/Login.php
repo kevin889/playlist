@@ -12,8 +12,14 @@ class Login extends CI_Controller {
         $data['user'] = $this->LoginModel->do_login();
 
         $this->load->view('login',$data);
+    }
 
-
+    public function save()
+    {
+        $this->load->model('LoginModel');
+        $this->LoginModel->save_login();
+        
+        var_dump($this->LoginModel->get_user());
     }
 
 }
