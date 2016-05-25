@@ -18,6 +18,8 @@ html,
 body {
   height: 100%;
   background-color: #333;
+  background: url("../../assets/images/placeholders/IMG_0005.jpg") no-repeat center center fixed;
+  background-size: cover; background-position: left center;
 }
 body {
   color: #fff;
@@ -135,7 +137,6 @@ body {
   .masthead {
     position: fixed;
     top: 0;
-    background: url("../../assets/images/yay-12632652-digital.jpg") no-repeat center center fixed;
   }
   .mastfoot {
     position: fixed;
@@ -163,20 +164,13 @@ body {
 
 
 /*
- * Request
+ * Request Form
  */
 
 .form-request {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
-}
-.form-request .form-request-heading,
-.form-request .checkbox {
-  margin-bottom: 10px;
-}
-.form-request .checkbox {
-  font-weight: normal;
 }
 .form-request .form-control {
   position: relative;
@@ -194,4 +188,12 @@ body {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+
+/*
+ * Debug
+ */
+.debug {
+  border:1px solid red;
 }
