@@ -14,7 +14,7 @@ class LoginModel extends CI_Model
             $_SESSION['state'] = md5(uniqid(rand(), true)); //CSRF protection
 
             $dialog_url = "https://connect.deezer.com/oauth/auth.php?app_id=" . $this->app_id
-                . "&redirect_uri=" . urlencode($this->my_url) . "&perms=email,offline_access"
+                . "&redirect_uri=" . urlencode($this->my_url) . "&perms=email,offline_access,manage_library"
                 . "&state=" . $_SESSION['state'];
 
             header("Location: " . $dialog_url);
