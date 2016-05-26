@@ -33,7 +33,7 @@ class Requestmodel extends CI_Model
     {
 
         foreach ($id as $request) {
-            $this->db->where('id', $request->id)->update('requests', array('added' => 1))->result();
+            $this->db->where('track_id', $request->track_id)->update('requests', array('added' => 1))->result();
         }
 
         return $id;

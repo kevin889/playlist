@@ -25,10 +25,13 @@ class API extends CI_Controller {
 //            $this->db->where('id', $this->RequestModel->getUnseen()[$i]['id'])->update('requests', array('added'=>1));
 //        }
         $unseen = $this->RequestModel->getUnseen();
+        $unseenArr = array();
         for($i = 0; $i < count($unseen); $i++){
             $this->db->where('track_id', $unseen[$i])->update('requests', array('added'=>1));
-            echo json_encode($unseen[$i]);
+            $unseenArr[] = $unseen[$i];
         }
+
+        echo json_encode($unseenArr);
 
 
     }
