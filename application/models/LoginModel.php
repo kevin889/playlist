@@ -63,4 +63,16 @@ class LoginModel extends CI_Model
         }
     }
 
+    public function getToken()
+    {
+        $token_url = "https://connect.deezer.com/oauth/access_token.php?app_id="
+            . $this->app_id . "&secret="
+            . $this->app_secret . "&code=" . $this->session->get_userdata('code')['code'];
+
+        $response = file_get_contents($token_url);
+        $params = null;
+        parse_str($response, $params);
+        return $params['access_token'];
+    }
+
 }
