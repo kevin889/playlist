@@ -39,4 +39,15 @@ class Requestmodel extends CI_Model
         return $id;
     }
 
+    public function getTrackIds()
+    {
+        $query = $this->db->get('requests');
+        $arr = array();
+        foreach ($query->result() as $request){
+            $arr[] = $request->track_id;
+        }
+
+        return $arr;
+    }
+
 }

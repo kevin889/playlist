@@ -35,9 +35,10 @@ $(document).ready(function () {
         }, "json");
         $.get("/API/getAdded", function(data){
 
-                DZ.player.changeTrackOrder(data);
 
-        }, "json");
+            DZ.player.changeTrackOrder(data);
+
+        });
 
     });
 
