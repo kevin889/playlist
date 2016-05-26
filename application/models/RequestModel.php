@@ -17,7 +17,7 @@ class Requestmodel extends CI_Model
     {
         $this->db->order_by("timestamp", "asc");
         $mydate = date('Y-m-d');
-        $this->db->where("DATEDIFF('$mydate', timestamp) <", 1);
+       // $this->db->where("DATEDIFF('$mydate', timestamp) <", 1);
         $this->db->where("added", 0);
       return $this->db->get('requests')->result();
     }
