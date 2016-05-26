@@ -19,7 +19,16 @@ class API extends CI_Controller {
     {
         $this->load->model('RequestModel');
 
-        echo json_encode($this->RequestModel->getUnseen());
+        //echo json_encode($this->RequestModel->getUnseen());
+//        for($i = 0; $i < count($this->RequestModel->getUnseen()); $i++){
+//             var_dump((array)$this->RequestModel->getUnseen()[$i]);
+//            $this->db->where('id', $this->RequestModel->getUnseen()[$i]['id'])->update('requests', array('added'=>1));
+//        }
+
+        $unseen = $this->RequestModel->getUnseen();
+        for($i = 0; $i < count($unseen); $i++){
+            $this->db->where('id', $unseen[$i])->update('requests', array('added'=>1));
+        }
 
 
     }

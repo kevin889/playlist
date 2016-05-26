@@ -3,20 +3,21 @@ $(document).ready(function () {
         $("#send").attr("disabled", "disabled");
 
         $.post("/API/search", {data: $(this).val()}, function (data) {
-            $(".autoload ul").html('');
+            $(".result").remove();
             for (var key in data) {
                 if (data.hasOwnProperty(key)) {
-                    $(".autoload ul").append("<li id='" + data[key]['id'] + "' class='suggest'>" + data[key]['title'] + " - " + data[key]['artist']['name'] + "</li>");
+                    $(".resultSet").append('<a href="#" id="'+data[key]['id']+'" class="list-group-item result">'+data[key]['title']+' - '+data[key]['artist']['name']+'</a>');
+                    // $(".autoload ul").append("<li id='" + data[key]['id'] + "' class='suggest'>" + data[key]['title'] + " - " + data[key]['artist']['name'] + "</li>");
                 }
             }
         }, "json");
     });
 
-    $(".autoload").on("click", "li", function (event) {
+    $(".resultSet").on("click", ".result", function (event) {
         var id = $(this).attr("id");
         var text = $(this).text();
         $("#searchDeeze").val(text);
-        $(".autoload ul").html('');
+        $(".result").remove();
         $("input[name=track_id]").val(id);
         $("#send").removeAttr("disabled");
 

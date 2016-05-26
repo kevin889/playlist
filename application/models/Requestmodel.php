@@ -1,11 +1,12 @@
 <?php
+
 class Requestmodel extends CI_Model
 {
 
     public function do_request()
     {
         $data = array(
-            'data'  => $this->input->post('data'),
+            'data' => $this->input->post('data'),
             'track_id' => $this->input->post('track_id')
         );
 
@@ -14,19 +15,29 @@ class Requestmodel extends CI_Model
 
     public function getAll()
     {
-			$this->db->order_by("timestamp", "asc");
-			$mydate = date('Y-m-d'); 
-			//$this->db->where("DATEDIFF('$mydate', timestamp) <", 1);
+        $this->db->order_by("timestamp", "asc");
+        $mydate = date('Y-m-d');
+        $this->db->where("DATEDIFF('$mydate', timestamp) <", 1);
+        $this->db->where("added", 0);
       return $this->db->get('requests')->result();
     }
 
     public function getUnseen()
     {
-        return $this->db->where('added', 0)->from('requests')->result();
+        $this->load->model('PlaylistModel');
+
+//        return $this->db->where('added', 0)->get('requests')->result();
+        return $this->PlaylistModel->update_playlist();
     }
 
-    public function setAdded($id){
-        return $this->db->where('track_id', $id)->update('requests', array('added'=>1))->result();
+    public function setAdded($id)
+    {
+
+        foreach ($id as $request) {
+            $this->db->where('id', $request->id)->update('requests', array('added' => 1))->result();
+        }
+
+        return $id;
     }
 
 }
