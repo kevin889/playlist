@@ -35,4 +35,15 @@ class API extends CI_Controller {
 
 
     }
+
+    public function getAdded()
+    {
+        $added = $this->db->where('added',1)->get('requests')->result_array();
+        $addedtr = array();
+        for($i = 0; $i<sizeof($added);$i++)
+        {
+            $addedtr[] = $added[$i]['track_id'];
+        }
+        echo json_encode($addedtr);
+    }
 }

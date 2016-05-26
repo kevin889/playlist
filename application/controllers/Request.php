@@ -8,7 +8,7 @@ class Request extends CI_Controller {
         //session_destroy();
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $this->load->model('Requestmodel');
+        $this->load->model('RequestModel');
         $this->load->model('LoginModel');
 
 

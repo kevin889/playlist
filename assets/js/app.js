@@ -33,6 +33,12 @@ $(document).ready(function () {
                 DZ.player.addToQueue(data);
             }
         }, "json");
+        $.get("/API/getAdded", function(data){
+
+                DZ.player.changeTrackOrder(data);
+
+        }, "json");
+
     });
 
 
