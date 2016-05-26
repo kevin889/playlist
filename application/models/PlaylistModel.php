@@ -4,7 +4,8 @@ class PlaylistModel extends CI_Model {
 
     public function sendToDeezer($playlistid,$data)
     {
-        $url = "http://api.deezer.com/playlist/". $playlistid ."/tracks";
+        $this->load->model('LoginModel');
+        $url = "http://api.deezer.com/playlist/". $playlistid ."/tracks?access_token=".$this->LoginModel->getToken();
 //        $data = implode(", ",$data);
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_POST, true);
@@ -12,6 +13,10 @@ class PlaylistModel extends CI_Model {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($curl);
         curl_close($curl);
+//        var_dump($response);
+//        var_dump($this->session->get_userdata('code'));
+//        var_dump($this->LoginModel->getToken());
+//        die();
         return $response;
     }
     public function orderDeezer($playlistid,$data)

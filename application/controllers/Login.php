@@ -18,8 +18,9 @@ class Login extends CI_Controller {
     {
         $this->load->model('LoginModel');
         $this->LoginModel->save_login();
-        
-        redirect('/','refresh');
+        //die($this->LoginModel->getToken());
+
+        redirect('/','location');
     }
 
 }

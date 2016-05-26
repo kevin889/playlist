@@ -13,7 +13,6 @@ class Request extends CI_Controller {
         $this->load->model('LoginModel');
 
 
-
         $this->form_validation->set_rules('data','Track','required');
         $this->form_validation->set_rules('track_id','Track ID','required');
 

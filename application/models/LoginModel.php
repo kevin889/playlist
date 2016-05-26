@@ -6,6 +6,7 @@ class LoginModel extends CI_Model
     private $app_id = "180582";
     private $app_secret = "6253bb789d105d4cea1b5f1f97cd18c6";
     private $my_url = "http://playdeeze4.me/login/save";
+    private $access_token = '';
 
     public function do_login()
     {
@@ -20,19 +21,28 @@ class LoginModel extends CI_Model
             header("Location: " . $dialog_url);
 
             exit;
-
         }
 
     }
 
     public function save_login()
     {
+        $token_url = "https://connect.deezer.com/oauth/access_token.php?app_id="
+            . $this->app_id . "&secret="
+            . $this->app_secret . "&code=" . $_REQUEST['code'];
 
+        $response = file_get_contents($token_url);
+        $params = null;
+        parse_str($response, $params);
         $newdata = array(
-            'code' => $_REQUEST['code']
+            'code' => $_REQUEST['code'],
+            'access_token' => $params['access_token']
         );
 
+        $this->access_token = $params['access_token'];
+
         $this->session->set_userdata($newdata);
+
 
         //var_dump($this->session->get_userdata('code'));
     }
@@ -65,14 +75,8 @@ class LoginModel extends CI_Model
 
     public function getToken()
     {
-        $token_url = "https://connect.deezer.com/oauth/access_token.php?app_id="
-            . $this->app_id . "&secret="
-            . $this->app_secret . "&code=" . $this->session->get_userdata('code')['code'];
-
-        $response = file_get_contents($token_url);
-        $params = null;
-        parse_str($response, $params);
-        return $params['access_token'];
+//        var_dump($this->session->get_userdata()['access_token']); die();
+        return $this->session->get_userdata()['access_token'];
     }
 
 }
