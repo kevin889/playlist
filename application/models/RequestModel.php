@@ -25,7 +25,6 @@ class Requestmodel extends CI_Model
     public function getUnseen()
     {
         $this->load->model('PlaylistModel');
-
 //        return $this->db->where('added', 0)->get('requests')->result();
         return $this->PlaylistModel->update_playlist();
     }

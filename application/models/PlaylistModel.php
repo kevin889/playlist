@@ -38,6 +38,7 @@ class PlaylistModel extends CI_Model {
         $all_requests = $this->RequestModel->getAll();
         if(!$all_requests) return false;
 
+
         //var_dump($all_requests);
         $votes = array();
         //echo "<pre>";print_r($all_requests);echo "</pre><hr>";
@@ -58,11 +59,13 @@ class PlaylistModel extends CI_Model {
                 "time_ago" => timespan($post_date, $now) . " ago",
                 "timestamp" => $request->timestamp
             );
+
             $songs_by_trackid[$track_id] = $song;
             $songs[] = $song;
         }
         /* Calculate score by request time */
         $total = count($songs);
+
         foreach($songs as $k=>$song){
             $score = $total - $k;
             $songs[$k]["score"] = $score;

@@ -28,7 +28,7 @@ $(document).ready(function () {
         $.get("/API/getQueue", function(data){
             for(var track in data){
                 console.log(data[track]['track_id']);
-                DZ.player.addToQueue([data[track]['track_id']]);
+                DZ.player.addToQueue(data);
             }
         }, "json");
     });
