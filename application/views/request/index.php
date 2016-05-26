@@ -34,8 +34,8 @@
                     <h3 class="masthead-brand"><img src="assets/img/logo.png" alt="Play Deeze For Me"/></h3>
                     <nav>
                         <ul class="nav masthead-nav">
-                            <li><a href="now.html">Playing</a></li>
-                            <li class="active"><a href="#">Request</a></li>
+                            <li><a href="/current">Playing</a></li>
+                            <li class="active"><a href="/">Request</a></li>
                         </ul>
                     </nav>
                 </div>

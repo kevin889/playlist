@@ -118,7 +118,7 @@ img {
  * Cover
  */
 
-.cover {
+.cover.current {
   padding: 0 20px;
   background: rgba(0,0,0,0.3);
 }
