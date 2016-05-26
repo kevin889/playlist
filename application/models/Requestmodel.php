@@ -20,4 +20,13 @@ class Requestmodel extends CI_Model
       return $this->db->get('requests')->result();
     }
 
+    public function getUnseen()
+    {
+        return $this->db->where('added', 0)->from('requests')->result();
+    }
+
+    public function setAdded($id){
+        return $this->db->where('track_id', $id)->update('requests', array('added'=>1))->result();
+    }
+
 }

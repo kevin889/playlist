@@ -31,6 +31,7 @@ DZ.init({
 DZ.ready(function(sdk_options){
 
     DZ.player.playPlaylist(1861142322);
+
 });
 
 
@@ -47,5 +48,6 @@ DZ.ready(function(sdk_options){
     }
 }, {perms: 'basic_access,email'});" value= "login"</input>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/assets/js/app.js"></script>
 </body>

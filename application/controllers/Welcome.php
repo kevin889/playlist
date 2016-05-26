@@ -20,6 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		//$this->load->model('RequestModel');
+
+//		$this->RequestModel->setAdded(63510361);
 		$this->load->view('test');
 	}
 }
