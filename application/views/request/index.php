@@ -31,7 +31,7 @@
 
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">PlayDeeze4.me</h3>
+                    <h3 class="masthead-brand"><img src="assets/img/logo.png" alt="Play Deeze For Me"/></h3>
                     <nav>
                         <ul class="nav masthead-nav">
                             <li><a href="now.html">Playing</a></li>
@@ -49,7 +49,7 @@
                     <h2 class="form-request-heading">Request Next</h2>
                     <label for="inputRequest" class="sr-only">Keyword</label>
                     <ul class="list-group resultSet">
-                        <input type="request" id="searchDeeze" name="data" class="form-control list-group-item" placeholder="Song title or artist"
+                        <input type="request" autocomplete="off" id="searchDeeze" name="data" class="form-control list-group-item" placeholder="Song title or artist"
                                required autofocus>
                     </ul>
 

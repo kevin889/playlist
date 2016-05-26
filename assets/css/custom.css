@@ -50,13 +50,27 @@ body {
   padding: 30px;
 }
 
+.inner.cover form{
+  padding: 30px;
+  background: rgba(0,0,0,0.3);
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
 
+.inner.cover form h2{
+  margin-top: 0;
+}
 /*
  * Header
  */
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.masthead-brand img{
+  max-width: 250px;
 }
 
 .masthead-nav > li {
@@ -168,7 +182,7 @@ body {
  */
 
 .form-request {
-  max-width: 330px;
+
   padding: 15px;
   margin: 0 auto;
 }
@@ -196,4 +210,17 @@ body {
  */
 .debug {
   border:1px solid red;
+}
+
+
+.list-group-item:first-child{
+  border-radius: 0;
+}
+
+.list-group-item:last-child{
+  border-radius: 0;
+}
+
+#send{
+  display: none;
 }

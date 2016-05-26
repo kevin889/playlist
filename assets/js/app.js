@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#searchDeeze").keyup(function () {
         $("#send").attr("disabled", "disabled");
+        $("#send").fadeOut();
 
         $.post("/API/search", {data: $(this).val()}, function (data) {
             $(".result").remove();
@@ -20,6 +21,7 @@ $(document).ready(function () {
         $(".result").remove();
         $("input[name=track_id]").val(id);
         $("#send").removeAttr("disabled");
+        $("#send").fadeIn();
 
     });
 
